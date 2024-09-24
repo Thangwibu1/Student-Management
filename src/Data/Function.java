@@ -1,5 +1,6 @@
 package Data;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Function extends Student {
@@ -9,9 +10,8 @@ public class Function extends Student {
     public double gpa;
     Scanner sc = new Scanner(System.in);
 
-    public void addStudent(Student students[], int size) {
+    public void addStudent(ArrayList<Student> students) {
         clearScreen();
-        int newSize = size + 1;
         System.out.print("Enter your student ID: ");
         id = sc.nextLine();
         System.out.print("Enter your name: ");
@@ -22,31 +22,26 @@ public class Function extends Student {
         gpa = sc.nextDouble();
 
         Student tmpStudent = new Student(id, name, yob, gpa);
-        Student tmpArray[] = new Student[newSize];
-        for (int i = 0; i < students.length; i++) {
-            tmpArray[i] = students[i];
-            students[i] = null;
+        ArrayList<Student> tmpArray = new ArrayList<Student>();
+        for (int i = 0; i < students.size(); i++) {
+            tmpArray.set(i, students.get(i));
+            students.set(i, null);
         }
-        tmpArray[size] = tmpStudent;
+        tmpArray.add(students.size(), tmpStudent);
         students = tmpArray;
-        size++;
-        System.out.println(students[size - 1]);
-        System.out.println(size);
+        System.out.println(students.get(0));
+        System.out.println(students.size());
         System.out.println("Add student information sucessfull");
     }
 
-    public int returnSize(int size) {
-        return size + 1;
-    }
-
-    public void printStudent(Student students[]) {
+    public void printStudent(ArrayList<Student> students) {
         clearScreen();
-        System.out.println(students.length);
-        if (students.length == 0) {
+        System.out.println(students.size());
+        if (students.size() == 0) {
             System.out.println("Don't have student. Please add one or more. ");
         } else {
-            for (int i = 0; i < students.length; i++) {
-                System.out.println(students[i]);
+            for (int i = 0; i < students.size(); i++) {
+                System.out.println(students.get(i));
             }
         }
 

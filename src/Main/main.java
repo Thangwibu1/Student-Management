@@ -1,5 +1,7 @@
 package Main;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 import Data.Student;
@@ -8,8 +10,7 @@ import Data.Function;
 public class main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int size = 0;
-        Student[] students = new Student[size];
+        ArrayList<Student> students = new ArrayList<Student>();
         Function fc = new Function();
         while (true) {
             clearScreen();
@@ -19,8 +20,7 @@ public class main {
                     fc.printStudent(students);
                     break;
                 case 2:
-                    fc.addStudent(students, size);
-                    size++;
+                    fc.addStudent(students);
                     break;
                 case 3:
 
