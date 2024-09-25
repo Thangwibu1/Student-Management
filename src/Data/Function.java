@@ -3,7 +3,7 @@ package Data;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Function extends Student {
+public class Function {
     public String id;
     public String name;
     public int yob;
