@@ -26,6 +26,9 @@ public class main {
                 case 3:
 
                     break;
+                case 4:
+
+                    break;
                 case 0:
                     System.out.println("Bye Bye!");
                     return;
@@ -55,6 +58,7 @@ public class main {
         System.out.println("1. Show list of student.");
         System.out.println("2. Add new student.");
         System.out.println("3. Delete student.");
+        System.out.println("4. Student exist check.");
         System.out.println("0. Close program");
         System.out.print("Enter your choice: ");
 

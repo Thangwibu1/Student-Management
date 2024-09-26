@@ -9,22 +9,22 @@ public class Student {
     
     private String studentID;
     private String studentName;
-    private int yearOfBirth;
-    private double gpa;
+    private String yearOfBirth;
+    private String gpa;
 
 
     public Student() {}
-    public Student(String studentID, String studentName, int yearOfBirth, double gpa) {
+    public Student(String studentID, String studentName, String yearOfBirth, String gpa) {
         this.studentID = studentID;
         this.studentName = studentName;
         this.yearOfBirth = yearOfBirth;
         this.gpa = gpa;
     }
 
-    public void setGpa(double gpa) {
+    public void setGpa(String gpa) {
         this.gpa = gpa;
     }
-    public double getGpa() {
+    public String getGpa() {
         return gpa;
     }
     public void setStudentID(String studentID) {
@@ -39,19 +39,19 @@ public class Student {
     public String getStudentName() {
         return studentName;
     }
-    public void setYearOfBirth(int yearOfBirth) {
+    public void setYearOfBirth(String yearOfBirth) {
         this.yearOfBirth = yearOfBirth;
     }
-    public int getYearOfBirth() {
+    public String getYearOfBirth() {
         return yearOfBirth;
     }
 
     @Override
     public String toString() {
-        return String.format("|%8s|%-25s|%4d|%.2f|\n", studentID, studentName, yearOfBirth, gpa);
+        return String.format("%8s|%-25s|%-4s|%-4s\n", studentID, studentName, yearOfBirth, gpa);
     }
     public void showProfile() {
-        System.out.printf("|%8s|%-25s|%4d|%.2f|\n", studentID, studentName, yearOfBirth, gpa);
+        System.out.printf("%8s|%-25s|%-4s|%-4s\n", studentID, studentName, yearOfBirth, gpa);
     }
 
 
