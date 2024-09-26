@@ -1,26 +1,27 @@
 package Main;
 
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import Data.Student;
 import Data.Function;
 
 public class main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
-        ArrayList<Student> students = new ArrayList<Student>();
         Function fc = new Function();
         while (true) {
             clearScreen();
             int choose = showMenu();
             switch (choose) {
                 case 1:
-                    fc.printStudent(students);
+                    fc.readFromFile();
+                    fc.display();
                     break;
                 case 2:
-                    fc.addStudent(students);
+                    fc.addStudent();
+                    fc.saveToFile();
                     break;
                 case 3:
 

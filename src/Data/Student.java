@@ -48,7 +48,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return String.format("|%8s|%-25s|%4d|%.2f|", studentID, studentName, yearOfBirth, gpa);
+        return String.format("|%8s|%-25s|%4d|%.2f|\n", studentID, studentName, yearOfBirth, gpa);
     }
     public void showProfile() {
         System.out.printf("|%8s|%-25s|%4d|%.2f|\n", studentID, studentName, yearOfBirth, gpa);
