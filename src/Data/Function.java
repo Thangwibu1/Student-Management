@@ -7,6 +7,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -17,37 +18,40 @@ public class Function {
     public String gpa;
     private List<Student> sList;
     Scanner sc = new Scanner(System.in);
+
     // Defined arrayList
     public Function() {
         sList = new ArrayList<>();
     }
-    //Read file (start)
+
+    // Read file (start)
     public void readFromFile() throws IOException {
+        sList.clear();
         File f = new File("data.txt");
         if (!f.exists()) {
             System.out.println("New file already created");
         }
         FileReader fr = new FileReader(f);
         BufferedReader br = new BufferedReader(fr);
-        
+
         while (true) {
             String line = br.readLine();
             if (line == null) {
                 break;
-            } 
+            }
             String info[] = line.split("[|]");
             id = info[0].trim();
             name = info[1].trim();
             yob = info[2].trim();
             gpa = info[3].trim();
-            
+
             sList.add(new Student(id, name, yob, gpa));
         }
-        
+
         br.close();
         fr.close();
     }
-    
+
     public void display() {
         clearScreen();
         if (sList.isEmpty()) {
@@ -60,7 +64,7 @@ public class Function {
     }
     // Read document (end)
 
-    //Write document to file(start)
+    // Write document to file(start)
     public void addStudent() {
         clearScreen();
         System.out.print("Enter your student ID: ");
@@ -73,9 +77,10 @@ public class Function {
         gpa = sc.nextLine();
 
         sList.add(new Student(id, name, yob, gpa));
-        
+
         System.out.println("Add student information sucessfull");
     }
+
     public void saveToFile() throws IOException {
         File f = new File("data.txt");
         FileWriter fr = new FileWriter(f);
@@ -85,8 +90,32 @@ public class Function {
         }
         br.close();
         fr.close();
-    } 
+    }
     // Write document(end)
+
+    // Delete information
+    public void deleteStudent() {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Enter student ID to delete: ");
+        id = sc.nextLine();
+        boolean userFound = false;
+
+        // Use an iterator to safely remove an item from the list during iteration
+        Iterator<Student> iterator = sList.iterator(); //=> Mảng iterator được cấp phép thay đổi dữ liệu từ mảng sList 
+        while (iterator.hasNext()) {
+            Student s = iterator.next(); //Lấy phần tử trong iterator ra
+            if (id.equals(s.getStudentID())) {
+                iterator.remove();
+                System.out.println("Student " + id + " has been removed.");
+                userFound = true;
+                break;
+            }
+        }
+        if (!userFound) {
+            System.out.println("Student not found.");
+        }
+
+    }
 
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");

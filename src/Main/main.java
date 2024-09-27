@@ -24,7 +24,8 @@ public class main {
                     fc.saveToFile();
                     break;
                 case 3:
-
+                    fc.deleteStudent();
+                    fc.saveToFile();
                     break;
                 case 4:
 

@@ -13,7 +13,7 @@ public class Student {
     private String gpa;
 
 
-    public Student() {}
+    public Student() {} // Contructor
     public Student(String studentID, String studentName, String yearOfBirth, String gpa) {
         this.studentID = studentID;
         this.studentName = studentName;
@@ -53,6 +53,7 @@ public class Student {
     public void showProfile() {
         System.out.printf("%8s|%-25s|%-4s|%-4s\n", studentID, studentName, yearOfBirth, gpa);
     }
+    
 
 
 }
