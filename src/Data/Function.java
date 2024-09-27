@@ -95,10 +95,11 @@ public class Function {
 
     // Delete information
     public void deleteStudent() {
+        clearScreen();
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter student ID to delete: ");
         id = sc.nextLine();
-        boolean userFound = false;
+        boolean studentFind = false;
 
         // Use an iterator to safely remove an item from the list during iteration
         Iterator<Student> iterator = sList.iterator(); //=> Mảng iterator được cấp phép thay đổi dữ liệu từ mảng sList 
@@ -107,16 +108,41 @@ public class Function {
             if (id.equals(s.getStudentID())) {
                 iterator.remove();
                 System.out.println("Student " + id + " has been removed.");
-                userFound = true;
+                studentFind = true;
                 break;
             }
         }
-        if (!userFound) {
+        if (!studentFind) {
             System.out.println("Student not found.");
         }
 
     }
+    //Delete information(end)
+    
+    //Find student
+    public void findStudent() {
+        clearScreen();
+        Scanner sc = new Scanner(System.in);
+        boolean studentFind = false;
+        System.out.print("Enter student ID to find: ");
+        id = sc.nextLine();
 
+        Iterator<Student> iterator = sList.iterator();
+        //=> Mảng iterator được cấp phép thay đổi dữ liệu từ mảng sList 
+        while (iterator.hasNext()) {
+            Student s = iterator.next(); //Lấy phần tử trong iterator ra
+            if (id.equals(s.getStudentID())) {
+                System.out.println(s);
+                studentFind = true;
+                break;
+            }
+        }
+        if (!studentFind) {
+            System.out.println("Student not found.");
+        } else {
+            System.out.println("Student exist.");
+        }
+    }
     public static void clearScreen() {
         System.out.print("\033[H\033[2J");
         System.out.flush();

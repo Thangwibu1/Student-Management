@@ -24,11 +24,13 @@ public class main {
                     fc.saveToFile();
                     break;
                 case 3:
+                    fc.readFromFile();
                     fc.deleteStudent();
                     fc.saveToFile();
                     break;
                 case 4:
-
+                    fc.readFromFile();
+                    fc.findStudent();
                     break;
                 case 0:
                     System.out.println("Bye Bye!");
@@ -42,7 +44,7 @@ public class main {
             boolean is_continue = false;
             if (checkContinue.equals("y")) {
                 is_continue = true;
-            } else if(checkContinue.equals("n")) {
+            } else if (checkContinue.equals("n")) {
                 is_continue = false;
             }
 
@@ -52,7 +54,6 @@ public class main {
             }
         }
     }
-
 
     public static int showMenu() {
         System.out.println("========MENU========");
