@@ -67,6 +67,11 @@ public class main {
         int choose;
         Scanner sc = new Scanner(System.in);
         choose = sc.nextInt();
+        while (choose < 1 || choose > 4) {
+            System.out.println("Invalid choice!");
+            System.out.print("Enter your choice again: ");
+            choose = sc.nextInt();
+        }
 
         return choose;
 

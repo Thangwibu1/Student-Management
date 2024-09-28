@@ -69,13 +69,36 @@ public class Function {
         clearScreen();
         System.out.print("Enter your student ID: ");
         id = sc.nextLine();
+        loop: do {
+            System.out.println("Your student ID need at least 8 char and must have 'se' in first place letter!");
+            System.out.print("Enter student ID again: ");
+            id = sc.nextLine();
+            String tmp1 = ""; 
+            tmp1 += id.charAt(0);
+            String tmp2 = ""; 
+            tmp2 += id.charAt(1);
+            if (tmp1.equals("s") && tmp2.equals("e")) {
+                break;
+            } else {
+                continue loop;
+            }
+        } while (id.length() != 8);
         System.out.print("Enter your name: ");
         name = sc.nextLine();
         System.out.print("Enter your year of birth: ");
         yob = sc.nextLine();
+        while (Integer.parseInt(yob) > 2024 || Integer.parseInt(yob) < 1) {
+            System.out.println("Your year of birth is invalid, please enter again!");
+            System.out.print("Enter your yob again: ");
+            yob = sc.nextLine();
+        }
         System.out.print("Enter your gpa: ");
         gpa = sc.nextLine();
-
+        while (Double.parseDouble(gpa) > 4.0 || Double.parseDouble(gpa) < 0.0) {
+            System.out.println("Your year of birth is invalid, please enter again!");
+            System.out.print("Enter your gpa again: ");
+            gpa = sc.nextLine();
+        }
         sList.add(new Student(id, name, yob, gpa));
 
         System.out.println("Add student information sucessfull");
