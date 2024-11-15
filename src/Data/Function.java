@@ -70,14 +70,15 @@ public class Function {
         System.out.print("Enter your student ID: ");
         id = sc.nextLine();
         loop: do {
-            System.out.println("Your student ID need at least 8 char and must have 'se' in first place letter!");
+            System.out.println("Your student ID need at least 8 char and must have 'se' or 'ss' in first place letter!");
             System.out.print("Enter student ID again: ");
             id = sc.nextLine();
             String tmp1 = ""; 
             tmp1 += id.charAt(0);
             String tmp2 = ""; 
             tmp2 += id.charAt(1);
-            if (tmp1.equals("s") && tmp2.equals("e")) {
+            if ((tmp1.equals("s") && tmp2.equals("e")) || (tmp1.equals("S") && tmp2.equals("E"))
+                || (tmp1.equals("s") && tmp2.equals("s")) || (tmp1.equals("S") && tmp2.equals("S"))) {
                 break;
             } else {
                 continue loop;
