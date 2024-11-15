@@ -68,22 +68,24 @@ public class Function {
     public void addStudent() {
         clearScreen();
         System.out.print("Enter your student ID: ");
-        id = sc.nextLine();
         loop: do {
-            System.out.println("Your student ID need at least 8 char and must have 'se' or 'ss' in first place letter!");
-            System.out.print("Enter student ID again: ");
             id = sc.nextLine();
+            int testLength = id.length();
             String tmp1 = ""; 
             tmp1 += id.charAt(0);
+            String tmp1_1 = tmp1.toLowerCase();
             String tmp2 = ""; 
             tmp2 += id.charAt(1);
-            if ((tmp1.equals("s") && tmp2.equals("e")) || (tmp1.equals("S") && tmp2.equals("E"))
-                || (tmp1.equals("s") && tmp2.equals("s")) || (tmp1.equals("S") && tmp2.equals("S"))) {
+            String tmp2_2 = tmp2.toLowerCase();
+            if (((tmp1_1.equals("s") && tmp2_2.equals("e")) || (tmp1_1.equals("s") && tmp2_2.equals("s")))
+                && testLength == 8) {
                 break;
             } else {
+                System.out.println("Your student ID need at least 8 char and must have 'se' or 'ss' in first place letter!");
+                System.out.print("Enter student ID again: ");
                 continue loop;
             }
-        } while (id.length() != 8);
+        } while (true);
         System.out.print("Enter your name: ");
         name = sc.nextLine();
         System.out.print("Enter your year of birth: ");
